@@ -7,13 +7,15 @@ import java.sql.SQLException;
 public class LoginHelper {
 
     private static final String endpoint = "cyberlingo.c2e35o45yt71.us-east-1.rds.amazonaws.com";
-    private static String databaseUsername;  // TODO
-    private static String databasePassword;
+    private static final String databaseUsername = "guest_user";  // TODO
+    private static final String databasePassword = "guest";
 
     public static boolean login(String username, String password) {
 
         try {
-            Connection conn = (Connection) DriverManager.getConnection("jbdc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
 
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("SELECT user_auth(?, ?)");
             st.setString(1, username);
@@ -29,6 +31,10 @@ public class LoginHelper {
             }
         }
         catch (SQLException sqlException) {
+            sqlException.printStackTrace();  // TODO get rid of after testing
+            return false;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
             return false;
         }
 
