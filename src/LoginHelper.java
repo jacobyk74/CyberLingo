@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class LoginHelper {
 
-    private static String endpoint;
-    private static String databaseUsername;
+    private static final String endpoint = "cyberlingo.c2e35o45yt71.us-east-1.rds.amazonaws.com";
+    private static String databaseUsername;  // TODO
     private static String databasePassword;
 
     public static boolean login(String username, String password) {
