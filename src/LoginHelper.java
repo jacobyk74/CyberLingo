@@ -13,7 +13,6 @@ public class LoginHelper {
     public static boolean login(String username, String password) {
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
 
@@ -24,7 +23,7 @@ public class LoginHelper {
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
                 // TODO need to check whether returned true or false
-                return rs.getBoolean(0);
+                return rs.getBoolean(1);
             }
             else {
                 return false;
@@ -33,9 +32,6 @@ public class LoginHelper {
         catch (SQLException sqlException) {
             sqlException.printStackTrace();  // TODO get rid of after testing
             return false;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return false;
         }
 
     }
@@ -43,9 +39,10 @@ public class LoginHelper {
     public static boolean createNewUser(String username, String password) {
 
         try {
+
             Connection conn = (Connection) DriverManager.getConnection("jbdc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
 
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("CALL user_create(?, ?)");
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("SELECT user_create(?, ?)");  // TODO may need to change if I switch user_create to a procedure instead
             st.setString(1, username);
             st.setString(2, password);
 
