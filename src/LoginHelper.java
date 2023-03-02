@@ -22,7 +22,6 @@ public class LoginHelper {
 
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                // TODO need to check whether returned true or false
                 return rs.getBoolean(1);
             }
             else {
@@ -48,13 +47,14 @@ public class LoginHelper {
 
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                return true;
+                return rs.getBoolean(1);
             }
             else {
                 return false;
             }
         }
         catch (SQLException sqlException) {
+            sqlException.printStackTrace();  // TODO get rid of after testing
             return false;
         }
 
