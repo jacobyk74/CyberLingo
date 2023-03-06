@@ -6,28 +6,33 @@ public class MultipleChoiceQuestion extends Question {
     private String correctAnswer;
     private List<String> possibleAnswers = new ArrayList<String>();
 
-    public MultipleChoiceQuestion() {
+    public MultipleChoiceQuestion(String prompt, String imageFilePath, List<String> possibleAnswers, String correctAnswer) {
         //TODO
+        this.setPrompt(prompt);
+        this.setImageFilePath(imageFilePath);
+        this.possibleAnswers = possibleAnswers;
+        this.correctAnswer = correctAnswer;
     }
 
     @Override
     public boolean checkIfCorrect(String answer) {
         //TODO
-        return false;
+        return (this.correctAnswer.equals(answer));
     }
 
     @Override
     public List<String> getPossibleAnswers() {
         //TODO
-        return null;
+        return this.possibleAnswers;
     }
 
-    public void setCorrectAnswer() {
+    public void setCorrectAnswer(String answer) {
         //TODO, may not be necessary
+        this.correctAnswer = answer;
     }
 
     public String getCorrectAnswer() {
         //TODO
-        return "";
+        return this.correctAnswer;
     }
 }

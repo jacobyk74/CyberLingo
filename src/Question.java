@@ -11,16 +11,25 @@ public abstract class Question {
 
     public void setPrompt(String prompt) {
         //TODO
+        this.prompt = prompt;
     }
 
     public boolean getIsCorrect() {
         //TODO
-        return false;
+        return this.isCorrect;
     }
 
     public String getPrompt() {
         //TODO
-        return "";
+        return this.prompt;
+    }
+
+    public void setImageFilePath(String filePath) {
+        this.imageFilePath = filePath;
+    }
+
+    public String getImageFilePath() {
+        return this.imageFilePath;
     }
 
 }
