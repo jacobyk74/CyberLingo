@@ -6,8 +6,8 @@ public abstract class Question {
     private boolean isCorrect;
     private String imageFilePath;
 
-    public abstract boolean checkIfCorrect(String answer);
-    public abstract List<String> getPossibleAnswers();
+    public abstract boolean checkIfCorrect(List<String> answers);
+    public abstract List<String> getPossibleAnswers(); // will need to check for empty list when calling this method
 
     public void setPrompt(String prompt) {
         //TODO

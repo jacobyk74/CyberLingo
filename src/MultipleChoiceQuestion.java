@@ -15,9 +15,9 @@ public class MultipleChoiceQuestion extends Question {
     }
 
     @Override
-    public boolean checkIfCorrect(String answer) {
+    public boolean checkIfCorrect(List<String> answers) {
         //TODO
-        return (this.correctAnswer.equals(answer));
+        return this.correctAnswer.toLowerCase().equals(answers.get(0).toLowerCase());
     }
 
     @Override
