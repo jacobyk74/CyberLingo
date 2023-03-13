@@ -64,8 +64,6 @@ public class LessonLoader {
 
         switch (questionType) {
             case "MC":
-                // TODO may need try-catch blocks in these
-                MultipleChoiceQuestion q;
                 try {
                     String prompt = rowScanner.next();
                     String answer1 = rowScanner.next();
@@ -78,16 +76,38 @@ public class LessonLoader {
                     return new MultipleChoiceQuestion(prompt, imageFilePath, answers, correctAnswer);
                 } catch (NoSuchElementException e) {
                     e.printStackTrace();
+                    break;
                 }
-                // return new MultipleChoiceQuestion
-
             case "MA":
-                // TODO
-                // return new MultipleAnswerQuestion
-                break;
+                try {
+                    String prompt = rowScanner.next();
+                    String answer1 = rowScanner.next();
+                    String answer2 = rowScanner.next();
+                    String answer3 = rowScanner.next();
+                    String answer4 = rowScanner.next();
+                    List<String> answers = new ArrayList<String>(List.of(answer1, answer2, answer3, answer4));
+                    String imageFilePath = rowScanner.next();
+
+                    List<String> correctAnswers = new ArrayList<>();
+                    while (rowScanner.hasNext()) { // so there can be variable nums of correct answers
+                        correctAnswers.add(rowScanner.next());
+                    }
+
+                    return new MultipleAnswerQuestion(prompt, imageFilePath, answers, correctAnswers);
+                } catch (NoSuchElementException e) {
+                    e.printStackTrace();
+                    break;
+                }
             case "T":
-                // TODO
-                // return new TextQuestion
+                try {
+                    String prompt = rowScanner.next();
+                    String correctAnswer = rowScanner.next();
+                    String imageFilePath = rowScanner.next();
+                    return new TextQuestion(prompt, imageFilePath, correctAnswer);
+                } catch (NoSuchElementException e) {
+                    e.printStackTrace();
+                    break;
+                }
         }
 
         return null;
