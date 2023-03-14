@@ -16,7 +16,7 @@ public class TextQuestion extends Question {
     @Override
     public boolean checkIfCorrect(List<String> answers) {
         //TODO
-        return this.correctAnswer.toLowerCase().equals(answers.get(0));
+        return this.correctAnswer.toLowerCase().equals(answers.get(0).toLowerCase());
     }
 
     @Override

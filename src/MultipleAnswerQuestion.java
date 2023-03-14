@@ -17,6 +17,9 @@ public class MultipleAnswerQuestion extends Question {
     @Override
     public boolean checkIfCorrect(List<String> answers) {
         //TODO
+        if (answers.isEmpty() && !correctAnswers.isEmpty()) {
+            return false;
+        }
 
         // put all possible answers in lowercase for checking later
         List<String> correctAnswersCopy = new ArrayList<>();

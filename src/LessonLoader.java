@@ -19,6 +19,7 @@ public class LessonLoader {
             try (Scanner scanner = new Scanner(file)) {
                 List<Lecture> lectures = new ArrayList<>();
                 List<Question> questions = new ArrayList<>();
+                String lessonTitle = scanner.nextLine();
 
 
                 while (scanner.hasNextLine()) {
@@ -26,7 +27,7 @@ public class LessonLoader {
 
                     processLine(line, lectures, questions);
                 }
-                lessons.add(new Lesson(questions, lectures, 0, ++id)); // 0 is temp for possible points
+                lessons.add(new Lesson(questions, lectures, 0, ++id, lessonTitle)); // 0 is temp for possible points
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
