@@ -1,3 +1,5 @@
+package application;
+
 public class Lecture {
 
     private final String lectureText;
