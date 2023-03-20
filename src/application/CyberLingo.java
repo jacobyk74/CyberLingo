@@ -19,12 +19,13 @@ public class CyberLingo extends Application {
     public void start(Stage stage) throws IOException {
 //        FXMLLoader fxmlLoader = new FXMLLoader(CyberLingo.class.getResource("login-screen.fxml"));
 //        Scene loginScreen = new Scene(fxmlLoader.load());
-        Parent root = FXMLLoader.load(getClass().getResource("login-screen.fxml"));
-        Scene loginScreen = new Scene(root);
-        loginScreen.setFill(Paint.valueOf("#cae0cd"));
+        Parent root = FXMLLoader.load(getClass().getResource("main-menu.fxml"));
+        Scene scene = new Scene(root);
+//        scene.getStylesheets().add("main-menu.css");
         stage.setTitle("CyberLingo: The Cyber Security Learning Application");
-        stage.setScene(loginScreen);
+        stage.setScene(scene);
         stage.show();
+//        MainMenuController.loadLessonList();
 
     }
 }
