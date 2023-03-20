@@ -1,0 +1,9 @@
+.root{
+    -fx-background-color: #cae0cd;
+}
+
+.label {
+    -fx-font-family: "Arial";
+    -fx-font-size: 25;
+    -fx-alignment: center;
+}

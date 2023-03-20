@@ -1,0 +1,25 @@
+.root{
+    -fx-background-color: #cae0cd;
+}
+
+.label {
+    -fx-font-family: Arial;
+}
+
+#title {
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+}
+
+.list-view .list-cell:even {
+    -fx-background-color: #a4de99;
+    -fx-text-fill: black;
+}
+.list-view .list-cell:odd {
+    -fx-background-color: #cae0cd;
+    -fx-text-fill: black;
+}
+
+.list-cell:selected {
+    -fx-background-color: white;
+}
