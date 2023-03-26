@@ -1,0 +1,16 @@
+.root{
+    -fx-background-color: #cae0cd;
+}
+
+#titleText {
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+}
+
+#lectureTitleText {
+    -fx-font-size: 20;
+}
+
+#lectureText {
+    -fx-font-size: 14;
+}
