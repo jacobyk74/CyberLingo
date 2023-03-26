@@ -12,7 +12,7 @@
 }
 
 .radio-button {
-    -fx-font-size: 14px;
+    -fx-font-size: 18px;
     -fx-padding: 5px;
 }
 
@@ -42,4 +42,22 @@
     -fx-opacity: 0;
     -fx-transition: opacity 0.3s ease;
 }
+
+.button {
+    -fx-background-color: #4CAF50; /* Green background color */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-border-width: 0; /* No border */
+}
+
+.button:hover {
+    -fx-background-color: #3E8E41; /* Darker green background color on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #1E5323; /* Even darker green background color on press */
+}
+
 
