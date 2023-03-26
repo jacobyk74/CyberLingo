@@ -12,14 +12,33 @@
 }
 
 .list-view .list-cell:even {
+    -fx-font-size: 18;
     -fx-background-color: #a4de99;
     -fx-text-fill: black;
 }
 .list-view .list-cell:odd {
+    -fx-font-size: 18;
     -fx-background-color: #cae0cd;
     -fx-text-fill: black;
 }
 
 .list-cell:selected {
     -fx-background-color: white;
+}
+
+.button {
+    -fx-background-color: #4CAF50; /* Green background color */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-border-width: 0; /* No border */
+}
+
+.button:hover {
+    -fx-background-color: #3E8E41; /* Darker green background color on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #1E5323; /* Even darker green background color on press */
 }

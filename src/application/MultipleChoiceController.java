@@ -35,6 +35,8 @@ public class MultipleChoiceController implements Initializable {
 
     public void submit() {
         // TODO
+        // should show a pop-up that says whether they got it right or wrong
+        // if wrong, should say correct answer and why
     }
 
 }
