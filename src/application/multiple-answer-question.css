@@ -1,0 +1,53 @@
+.root{
+    -fx-background-color: #cae0cd;
+}
+
+#titleText {
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+}
+
+#questionPromptText {
+    -fx-font-size: 20;
+}
+
+.button {
+    -fx-background-color: #4CAF50; /* Green background color */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-border-width: 0; /* No border */
+}
+
+.button:hover {
+    -fx-background-color: #3E8E41; /* Darker green background color on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #1E5323; /* Even darker green background color on press */
+}
+
+.check-box {
+    -fx-font-size: 18px; /* Font size */
+}
+
+.check-box .box {
+    -fx-background-color: #4CAF50; /* Green background color */
+    -fx-background-radius: 2px; /* Rounded corners */
+    -fx-border-color: #4CAF50; /* Border color */
+    -fx-border-radius: 2px; /* Rounded corners */
+}
+
+.check-box .box:hover {
+    -fx-background-color: #3E8E41; /* Darker green background color on hover */
+}
+
+.check-box .box:selected {
+    -fx-background-color: #4CAF50; /* Green background color when selected */
+    -fx-border-color: #4CAF50; /* Border color when selected */
+}
+
+.check-box .box:selected:hover {
+    -fx-background-color: #3E8E41; /* Darker green background color when selected and hovered */
+}

@@ -2,34 +2,26 @@
     -fx-background-color: #cae0cd;
 }
 
-.label {
-    -fx-font-family: Arial;
-    -fx-font-size: 15;
-}
-
-#lessonsLabel {
-    -fx-font-size: 18;
-    -fx-font-weight: bold;
-}
-
-#title {
+#titleText {
     -fx-font-size: 25;
     -fx-font-weight: bold;
 }
 
-.list-view .list-cell:even {
-    -fx-font-size: 18;
-    -fx-background-color: #a4de99;
-    -fx-text-fill: black;
-}
-.list-view .list-cell:odd {
-    -fx-font-size: 18;
-    -fx-background-color: #cae0cd;
-    -fx-text-fill: black;
+#lessonCompleteText {
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
 }
 
-.list-cell:selected {
-    -fx-background-color: white;
+#finalScoreText {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+#scoreText {
+    -fx-font-family: "Microsoft YaHei UI";
+    -fx-fill: #488e3f;
+    -fx-font-size: 70;
+    -fx-font-weight: bold;
 }
 
 .button {
