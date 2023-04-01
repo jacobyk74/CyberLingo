@@ -31,6 +31,9 @@ public class MainMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        // use LessonLoader to load all lessons and get their titles
+        // load titles into lessonList
         lessonList.getItems().addAll(lessons);
 
         // to detect what item is selected

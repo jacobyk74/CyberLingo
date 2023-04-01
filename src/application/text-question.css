@@ -11,6 +11,13 @@
     -fx-font-size: 20;
 }
 
+#inputTextField {
+    -fx-font-size: 40;
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.58);
+}
+
 .button {
     -fx-background-color: #4CAF50; /* Green background color */
     -fx-background-radius: 5px; /* Rounded corners */
