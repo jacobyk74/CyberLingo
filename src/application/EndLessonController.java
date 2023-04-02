@@ -8,7 +8,7 @@ import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class endLessonController implements Initializable {
+public class EndLessonController implements Initializable {
 
     @FXML
     private Text scoreText;
