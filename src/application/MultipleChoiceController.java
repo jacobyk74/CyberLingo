@@ -39,4 +39,8 @@ public class MultipleChoiceController implements Initializable {
         // if wrong, should say correct answer and why
     }
 
+    public void loadQuestionInfo(Lesson currentLesson, String username) {
+        // TODO
+    }
+
 }

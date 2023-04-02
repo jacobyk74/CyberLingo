@@ -24,4 +24,8 @@ public class TextQuestionController implements Initializable {
     public void submit() {
         // TODO
     }
+
+    public void loadQuestionInfo(Lesson currentLesson, String username) {
+        // TODO
+    }
 }

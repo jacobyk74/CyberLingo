@@ -33,13 +33,14 @@ public class LoginController {
 
             MainMenuController mainMenuController = loader.getController();
             // now call method to display the user email in next scene (if needed)
+            mainMenuController.displayUsername(givenEmail);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }
-        else { // login unsuccessful
+        else { // login unsuccessful, show alert window
 //            System.out.println("False");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Login Failed");

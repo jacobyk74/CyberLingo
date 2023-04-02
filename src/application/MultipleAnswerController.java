@@ -25,4 +25,8 @@ public class MultipleAnswerController implements Initializable {
         // TODO
     }
 
+    public void loadQuestionInfo(Lesson currentLesson, String username) {
+        // TODO
+    }
+
 }
