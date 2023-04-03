@@ -5,16 +5,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
@@ -25,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.Flow;
 
 public class MultipleAnswerController implements Initializable {
 
@@ -38,6 +38,8 @@ public class MultipleAnswerController implements Initializable {
     private GridPane rightGridPane;
     @FXML
     private Button submitButton;
+    @FXML
+    private VBox mainBox;
 
     private String username;
     private Lesson lesson;
@@ -80,12 +82,19 @@ public class MultipleAnswerController implements Initializable {
         }
         // prepare final message
         VBox newVBox = new VBox();
+        FlowPane flowPane = new FlowPane();
         Text finalText = new Text();
 
         finalText.setTextAlignment(TextAlignment.CENTER);
-        newVBox.getChildren().add(finalText);
+//        newVBox.getChildren().add(finalText);
         VBox.setVgrow(finalText, Priority.ALWAYS);
-        newVBox.setAlignment(Pos.CENTER);
+//        newVBox.setAlignment(Pos.CENTER);
+        mainBox.getChildren().clear();
+        mainBox.setAlignment(Pos.CENTER);
+        mainBox.getChildren().add(finalText);
+//        flowPane.setAlignment(Pos.CENTER);
+//        flowPane.setOrientation(Orientation.VERTICAL);
+//        flowPane.getChildren().add(finalText);
 
         if (lesson.getCurrQuestion().checkIfCorrect(givenAnswers)) {
             finalText.setStyle("-fx-fill: #488e3f; -fx-font-size: 50; -fx-font-weight: bold");
@@ -100,12 +109,17 @@ public class MultipleAnswerController implements Initializable {
                 finalTextString += "\n" + s;
             }
             Text finalTextCorrectAnswers = new Text(finalTextString);
-            finalTextCorrectAnswers.setStyle("-fx-fill: #488e3f; -fx-font-size: 50; -fx-font-weight: bold");
+            finalTextCorrectAnswers.setStyle("-fx-fill: #488e3f; -fx-font-size: 30; -fx-font-weight: bold");
+//            VBox.setVgrow(finalTextCorrectAnswers, Priority.ALWAYS);
             finalTextCorrectAnswers.setTextAlignment(TextAlignment.CENTER);
-            newVBox.getChildren().add(finalTextCorrectAnswers);
-            // TODO buttons being weird with this VBox, need to fix
+//            newVBox.getChildren().add(finalTextCorrectAnswers);
+            mainBox.getChildren().add(finalTextCorrectAnswers);
+            mainBox.setPadding(new Insets(100));
+//            flowPane.getChildren().add(finalTextCorrectAnswers);
+            // TODO buttons being weird with this VBox when text goes to the edges, need to fix
         }
-        borderPane.setCenter(newVBox);
+//        borderPane.setCenter(newVBox);
+//        borderPane.setCenter(flowPane);
 
         submitButton.setText("Next");
         submitButton.setOnAction(new EventHandler<ActionEvent>() {
