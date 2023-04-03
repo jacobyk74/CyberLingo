@@ -80,6 +80,7 @@ public class MultipleAnswerController implements Initializable {
                 givenAnswers.add(box.getText());
             }
         }
+
         // prepare final message
         VBox newVBox = new VBox();
         FlowPane flowPane = new FlowPane();
@@ -121,6 +122,7 @@ public class MultipleAnswerController implements Initializable {
 //        borderPane.setCenter(newVBox);
 //        borderPane.setCenter(flowPane);
 
+        // change submit button to next button that goes to next question
         submitButton.setText("Next");
         submitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -132,47 +134,6 @@ public class MultipleAnswerController implements Initializable {
                 }
             }
         });
-
-
-        // after checking answers and notifying whether answers were correct or not
-//        FXMLLoader loader;
-//        Parent root;
-//        if (!lesson.nextQuestion()) { // load end of lesson screen when out of questions
-//            loader = new FXMLLoader(getClass().getResource("end-of-lesson.fxml"));
-//            root = loader.load();
-//            EndLessonController endLessonController = loader.getController();
-//            endLessonController.loadEndOfLessonInfo(lesson, username);
-//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            Scene scene = new Scene(root);
-//            stage.setScene(scene);
-//            stage.show();
-//
-//            return;
-//        }
-//        Question question = lesson.getCurrQuestion();
-//        if (question instanceof  MultipleChoiceQuestion) {
-//            loader = new FXMLLoader(getClass().getResource("multiple-choice-question.fxml"));
-//            root = loader.load();
-//            MultipleChoiceController multipleChoiceController = loader.getController();
-//            multipleChoiceController.loadQuestionInfo(this.lesson, this.username);
-//        }
-//        else if (question instanceof  MultipleAnswerQuestion) {
-//            loader = new FXMLLoader(getClass().getResource("multiple-answer-question.fxml"));
-//            root = loader.load();
-//            MultipleAnswerController multipleAnswerController = loader.getController();
-//            multipleAnswerController.loadQuestionInfo(this.lesson, this.username);
-//        }
-//        else { // text question
-//            loader = new FXMLLoader(getClass().getResource("text-question.fxml"));
-//            root = loader.load();
-//            TextQuestionController textQuestionController = loader.getController();
-//            textQuestionController.loadQuestionInfo(this.lesson, this.username);
-//        }
-//
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
     }
 
     private void loadNext(ActionEvent event) throws IOException {

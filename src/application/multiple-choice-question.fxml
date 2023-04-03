@@ -66,7 +66,7 @@
       </GridPane>
    </right>
    <center>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="mainBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Text fx:id="questionPromptText" strokeType="OUTSIDE" strokeWidth="0.0" text="Placeholder Question Prompt" VBox.vgrow="ALWAYS" />
             <ImageView fitHeight="253.0" fitWidth="329.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS" />
