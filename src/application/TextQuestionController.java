@@ -45,7 +45,7 @@ public class TextQuestionController implements Initializable {
             loader = new FXMLLoader(getClass().getResource("end-of-lesson.fxml"));
             root = loader.load();
             EndLessonController endLessonController = loader.getController();
-            // TODO call things for loading into end lesson screen here
+            endLessonController.loadEndOfLessonInfo(lesson, username);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
