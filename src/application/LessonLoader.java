@@ -29,7 +29,7 @@ public class LessonLoader {
 
                     processLine(line, lectures, questions);
                 }
-                lessons.add(new Lesson(questions, lectures, 0, ++id, lessonTitle)); // 0 is temp for possible points
+                lessons.add(new Lesson(questions, lectures, questions.size(), ++id, lessonTitle));
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

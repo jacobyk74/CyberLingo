@@ -22,6 +22,21 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
+    public void goToAccountCreation(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("create-account.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void login(ActionEvent event) throws IOException {
 
         String givenEmail = emailField.getText();

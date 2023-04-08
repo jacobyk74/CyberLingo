@@ -1,10 +1,6 @@
 package application;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class LoginHelper {
 
@@ -37,26 +33,49 @@ public class LoginHelper {
 
     }
 
-    public static boolean createNewUser(String username, String password) {
+    public static boolean createNewUser(String email, String password, String username) {
 
         try {
 
-            Connection conn = (Connection) DriverManager.getConnection("jbdc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
 
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("SELECT user_create(?, ?)");  // TODO may need to change if I switch user_create to a procedure instead
-            st.setString(1, username);
+//            PreparedStatement st = (PreparedStatement) conn.prepareStatement("SELECT user_create(?, ?)");
+//            CallableStatement st = conn.prepareCall("CALL create_user(?, ?, ?)");
+            PreparedStatement st = conn.prepareStatement("CALL create_user(?, ?, ?)");
+            st.setString(1, email);
             st.setString(2, password);
+            st.setString(3, username);
 
-            ResultSet rs = st.executeQuery();
-            if (rs.next()) {
-                return rs.getBoolean(1);
-            }
-            else {
-                return false;
-            }
+            st.execute();
+            System.out.println("Statement was executed"); // TODO remove after testing
+
+//            int updateCount = st.getUpdateCount();
+//            if (updateCount == -1) {
+//                int errorCode = st.getInt("SQLSTATE");
+//                if (errorCode == 45000) {
+//                    System.out.println("Username already taken"); // TODO for testing
+//                    return false;
+//                } else if (errorCode == 1602) {
+//                    System.out.println("Email already taken"); // TODO for testing
+//                    return false;
+//                }
+//            }
+            return true;
+
         }
         catch (SQLException sqlException) {
-            sqlException.printStackTrace();  // TODO get rid of after testing
+//            sqlException.printStackTrace();  // TODO get rid of after testing
+//            return false;
+            String state = sqlException.getSQLState();
+            if (state.equals("45000")) {
+                System.out.println("Username already taken");
+                return false;
+            }
+            else if (state.equals("1602")) {
+                System.out.println("Email already taken");
+                return false;
+            }
+            System.out.println("Something else went wrong idk");
             return false;
         }
 

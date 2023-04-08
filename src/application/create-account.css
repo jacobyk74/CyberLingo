@@ -7,3 +7,20 @@
     -fx-font-size: 25;
     -fx-alignment: center;
 }
+
+.button {
+    -fx-background-color: #4CAF50; /* Green background color */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-border-width: 0; /* No border */
+}
+
+.button:hover {
+    -fx-background-color: #3E8E41; /* Darker green background color on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #1E5323; /* Even darker green background color on press */
+}

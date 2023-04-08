@@ -178,7 +178,6 @@ public class MultipleAnswerController implements Initializable {
     }
 
     public void loadQuestionInfo(Lesson currentLesson, String username) {
-        // TODO
         this.lesson = currentLesson;
         this.username = username;
 

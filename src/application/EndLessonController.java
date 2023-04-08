@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class EndLessonController implements Initializable {
 
     @FXML
-    private Text scoreText;
+    private Text scoreText, titleText;
     @FXML
     private Button backButton;
 
@@ -31,9 +31,12 @@ public class EndLessonController implements Initializable {
     }
 
     public void loadEndOfLessonInfo(Lesson lesson, String username) {
-        // TODO
+        int score = lesson.getCurrScore();
+        int possibleScore = lesson.getPossiblePoints();
+        titleText.setText(lesson.getLessonTitle());
+        scoreText.setText(score + "/" + possibleScore);
 
-        // after normal loading, update score in database
+        // TODO after normal loading, update score in database
     }
 
     public void backToMainMenu(ActionEvent event) {
