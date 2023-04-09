@@ -39,43 +39,28 @@ public class LoginHelper {
 
             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
 
-//            PreparedStatement st = (PreparedStatement) conn.prepareStatement("SELECT user_create(?, ?)");
-//            CallableStatement st = conn.prepareCall("CALL create_user(?, ?, ?)");
             PreparedStatement st = conn.prepareStatement("CALL create_user(?, ?, ?)");
             st.setString(1, email);
             st.setString(2, password);
             st.setString(3, username);
 
             st.execute();
-            System.out.println("Statement was executed"); // TODO remove after testing
+//            System.out.println("Statement was executed"); // TODO remove after testing
 
-//            int updateCount = st.getUpdateCount();
-//            if (updateCount == -1) {
-//                int errorCode = st.getInt("SQLSTATE");
-//                if (errorCode == 45000) {
-//                    System.out.println("Username already taken"); // TODO for testing
-//                    return false;
-//                } else if (errorCode == 1602) {
-//                    System.out.println("Email already taken"); // TODO for testing
-//                    return false;
-//                }
-//            }
             return true;
 
         }
         catch (SQLException sqlException) {
-//            sqlException.printStackTrace();  // TODO get rid of after testing
-//            return false;
-            String state = sqlException.getSQLState();
-            if (state.equals("45000")) {
-                System.out.println("Username already taken");
-                return false;
-            }
-            else if (state.equals("1602")) {
-                System.out.println("Email already taken");
-                return false;
-            }
-            System.out.println("Something else went wrong idk");
+//            String state = sqlException.getSQLState();
+//            if (state.equals("45000")) {
+//                System.out.println("Username already taken");
+//                return false;
+//            }
+//            else if (state.equals("1602")) {
+//                System.out.println("Email already taken");
+//                return false;
+//            }
+//            System.out.println("Something else went wrong idk");
             return false;
         }
 

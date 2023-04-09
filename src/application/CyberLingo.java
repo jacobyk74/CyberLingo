@@ -26,6 +26,5 @@ public class CyberLingo extends Application {
         stage.setScene(scene);
         stage.show();
 //        MainMenuController.loadLessonList();
-
     }
 }
