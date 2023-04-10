@@ -1,6 +1,7 @@
 package application;
 
 import java.sql.*;
+import java.util.HashMap;
 
 public class LoginHelper {
 
@@ -63,6 +64,35 @@ public class LoginHelper {
 //            System.out.println("Something else went wrong idk");
             return false;
         }
+
+    }
+
+    public static HashMap<String, Integer> getScores() {
+
+        try {
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
+
+            PreparedStatement st = conn.prepareStatement("CALL get_scores()");
+
+            ResultSet resultSet = st.getResultSet();
+
+            HashMap<String, Integer> scores = new HashMap<>();
+            while (resultSet.next()) {
+                String username = resultSet.getString(1);
+                Integer score = resultSet.getInt(2);
+
+                scores.put(username, score);
+            }
+
+            return scores;
+
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace(); // TODO remove after testing
+            return null;
+        }
+    }
+
+    public static void updateScore(String email, int score) {
 
     }
 }
