@@ -32,6 +32,14 @@
     -fx-background-color: white;
 }
 
+#leaderboardView .list-cell:even {
+    -fx-font-size: 12;
+}
+
+#leaderboardView .list-cell:odd {
+    -fx-font-size: 12;
+}
+
 .button {
     -fx-background-color: #4CAF50; /* Green background color */
     -fx-background-radius: 5px; /* Rounded corners */

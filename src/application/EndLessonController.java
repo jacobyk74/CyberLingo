@@ -31,12 +31,14 @@ public class EndLessonController implements Initializable {
     }
 
     public void loadEndOfLessonInfo(Lesson lesson, String username) {
+        this.username = username;
         int score = lesson.getCurrScore();
         int possibleScore = lesson.getPossiblePoints();
         titleText.setText(lesson.getLessonTitle());
         scoreText.setText(score + "/" + possibleScore);
 
         // TODO after normal loading, update score in database
+        LoginHelper.updateScore(this.username, score * 10);
     }
 
     public void backToMainMenu(ActionEvent event) {

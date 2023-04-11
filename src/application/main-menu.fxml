@@ -52,7 +52,7 @@
             <RowConstraints maxHeight="204.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label fx:id="currentPoints" text="Current Points:" />
+            <Label text="Current Points:" />
             <GridPane GridPane.rowIndex="2">
               <columnConstraints>
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -66,7 +66,7 @@
                   <ListView prefHeight="141.0" prefWidth="100.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <Label text="&lt;points&gt;" GridPane.rowIndex="1" />
+            <Label fx:id="currentPointsLabel" text="&lt;points&gt;" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </right>
@@ -81,7 +81,7 @@
         </rowConstraints>
          <children>
             <Label text="Leaderboards" />
-            <ListView prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
+            <ListView fx:id="leaderboardView" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </left>

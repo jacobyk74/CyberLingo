@@ -1,7 +1,5 @@
 package application;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,22 +14,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainMenuController implements Initializable {
 
     @FXML
-    private ListView<String> lessonList;
+    private ListView<String> lessonList, leaderboardView;
     @FXML
     private Button logoutButton;
     @FXML
-    private Label usernameLabel;
+    private Label usernameLabel, currentPointsLabel;
 
 //    String[] lessons = {"Lesson 1", "Lesson 2", "Lesson 3"};
-    Lesson currentLesson;
-    String username;
+    private Lesson currentLesson;
+    private String email, username, userScore;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -57,7 +53,7 @@ public class MainMenuController implements Initializable {
                     LectureController lectureController = loader.getController();
                     // here will call a method to initialize with chosen lesson's content in next scene
                     // by passing lesson object
-                    lectureController.loadLectureInfo(currentLesson, this.username);
+                    lectureController.loadLectureInfo(currentLesson, this.email);
 
                     Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);
@@ -70,11 +66,36 @@ public class MainMenuController implements Initializable {
         });
 
         // initialize the leaderboards and rewards based on user email
+        HashMap<String, Integer> userScores = LoginHelper.getScores();
+        // sort it
+        List<Map.Entry<String, Integer>> entries = new ArrayList<>(userScores.entrySet());
+        entries.sort(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+        // store sorted entries in a list
+        List<String> sortedUserScores = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : entries) {
+            sortedUserScores.add(entry.getKey() + ": " + entry.getValue() + " points");
+        }
+        // initialize ListView with the sorted user scores
+        leaderboardView.getItems().addAll(sortedUserScores);
     }
 
-    public void displayUsername(String username) {
-        this.username = username;
-        usernameLabel.setText("Hello, "+ username + "!");
+    public void displayUsername(String email) {
+        this.email = email;
+//        usernameLabel.setText("Hello, "+ email + "!");
+
+        // TODO change points label to match points from database
+        List<String> temp = LoginHelper.getSpecificScore(email);
+        this.username = temp.get(0);
+        this.userScore = temp.get(1);
+
+        usernameLabel.setText("Hello, "+ this.username + "!");
+        currentPointsLabel.setText(this.userScore);
+        currentPointsLabel.setStyle("-fx-font-weight: bold");
     }
 
     public void logout(ActionEvent event) {

@@ -2,6 +2,7 @@ package application;
 
 import java.sql.*;
 import java.util.HashMap;
+import java.util.List;
 
 public class LoginHelper {
 
@@ -73,9 +74,9 @@ public class LoginHelper {
             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
 
             PreparedStatement st = conn.prepareStatement("CALL get_scores()");
+            st.execute();
 
             ResultSet resultSet = st.getResultSet();
-
             HashMap<String, Integer> scores = new HashMap<>();
             while (resultSet.next()) {
                 String username = resultSet.getString(1);
@@ -93,6 +94,41 @@ public class LoginHelper {
     }
 
     public static void updateScore(String email, int score) {
+
+        try {
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
+
+            PreparedStatement st = conn.prepareStatement("CALL update_points(?, ?)");
+            st.setString(1, email);
+            st.setInt(2, score);
+
+            st.execute();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+    }
+
+    public static List<String> getSpecificScore(String email) {
+
+        try {
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://" + endpoint + ":3306/cyberlingo", databaseUsername, databasePassword);
+
+            PreparedStatement st = conn.prepareStatement("CALL get_specific_score(?)");
+            st.setString(1, email);
+
+            st.execute();
+
+            ResultSet resultSet = st.getResultSet();
+            resultSet.next();
+            String username = resultSet.getString(1);
+            String totalScore = Integer.toString(resultSet.getInt(2));
+
+            return List.of(username, totalScore);
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            return null;
+
+        }
 
     }
 }
