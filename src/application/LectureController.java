@@ -40,7 +40,7 @@ public class LectureController implements Initializable {
         lectureTitleText.setText(lecture.getTopic());
         lectureText.setText(lecture.getLectureText());
 //        lectureImage.setImage(new Image(lecture.getImageFilePath()));
-        currentLesson.nextLecture();
+//        currentLesson.nextLecture();
     }
 
     public void back(ActionEvent event) {
@@ -65,6 +65,25 @@ public class LectureController implements Initializable {
 
     public void next(ActionEvent event) throws IOException {
         // TODO
+
+        // check if there are more lectures first
+        if (lesson.nextLecture()) {
+            FXMLLoader loader;
+            Parent root;
+            loader = new FXMLLoader(getClass().getResource("lecture.fxml"));
+            root = loader.load();
+            LectureController lectureController = loader.getController();
+            lectureController.loadLectureInfo(lesson, username);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+            return;
+        }
+
+        // if no more lectures, start loading questions
         Question question = lesson.getCurrQuestion();
         FXMLLoader loader;
         Parent root;
