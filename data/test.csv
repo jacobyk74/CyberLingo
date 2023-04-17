@@ -1,5 +1,5 @@
 Example Lesson
-L,Example text,Example Topic,c://fakepath
-Q,MC,This is a test question,Test Answer #1,Test Answer #2,Test Answer #3,Test Answer #4,Test Answer #1,c://fakepath
-Q,T,This is a test text question,Test Text Answer,c://fakepath
-Q,MA,This is a test multiple answer question,Test Answer #1,Test Answer #2,Test Answer #3,Test Answer #4,c://fakepath,Test Answer #2,Test Answer #4
+L,,Example text,,Example Topic,,c://fakepath
+Q,,MC,,This is a test question,,Test Answer #1,,Test Answer #2,,Test Answer #3,,Test Answer #4,,Test Answer #1,,c://fakepath
+Q,,T,,This is a test text question,,Test Text Answer,,c://fakepath
+Q,,MA,,This is a test multiple answer question,,Test Answer #1,,Test Answer #2,,Test Answer #3,,Test Answer #4,,c://fakepath,,Test Answer #2,,Test Answer #4

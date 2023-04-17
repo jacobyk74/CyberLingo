@@ -71,7 +71,7 @@
          <children>
             <Text fx:id="lectureTitleText" strokeType="OUTSIDE" strokeWidth="0.0" text="Placeholder Title Text" />
             <ImageView fitHeight="239.0" fitWidth="336.0" pickOnBounds="true" preserveRatio="true" />
-            <Text fx:id="lectureText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="400.9830722808838" />
+            <Text fx:id="lectureText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="556.9830722808838" />
          </children>
       </VBox>
    </center>

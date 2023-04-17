@@ -43,7 +43,7 @@ public class LessonLoader {
     private static void processLine(String line, List<Lecture> lectures, List<Question> questions) {
 
         try (Scanner rowScanner = new Scanner(line)) {
-            rowScanner.useDelimiter(",");
+            rowScanner.useDelimiter(",,");
 
             if (!rowScanner.hasNext()) {
                 return;
