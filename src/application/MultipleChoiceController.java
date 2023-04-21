@@ -14,6 +14,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -42,6 +44,9 @@ public class MultipleChoiceController implements Initializable {
 
     @FXML
     private VBox mainBox;
+
+    @FXML
+    private ImageView imageView;
 
     private Lesson lesson;
     private String username;
@@ -167,7 +172,6 @@ public class MultipleChoiceController implements Initializable {
     }
 
     public void loadQuestionInfo(Lesson currentLesson, String username) {
-        // TODO
         this.lesson = currentLesson;
         this.username = username;
 
@@ -183,6 +187,12 @@ public class MultipleChoiceController implements Initializable {
             answerButton3.setText(possibleAnswers.get(3));
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
+        }
+
+        try {
+            imageView.setImage(new Image(getClass().getResourceAsStream(question.getImageFilePath())));
+        } catch (Exception ignored) {
+
         }
     }
 

@@ -7,7 +7,6 @@ public class Lecture {
     private final String imageFilePath;
 
     public Lecture(String lectureText, String topic, String imageFilePath) {
-        //TODO
         this.lectureText = lectureText;
         this.topic = topic;
         this.imageFilePath = imageFilePath;

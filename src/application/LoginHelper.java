@@ -29,7 +29,6 @@ public class LoginHelper {
             }
         }
         catch (SQLException sqlException) {
-            sqlException.printStackTrace();  // TODO get rid of after testing
             return false;
         }
 
@@ -47,22 +46,11 @@ public class LoginHelper {
             st.setString(3, username);
 
             st.execute();
-//            System.out.println("Statement was executed"); // TODO remove after testing
 
             return true;
 
         }
         catch (SQLException sqlException) {
-//            String state = sqlException.getSQLState();
-//            if (state.equals("45000")) {
-//                System.out.println("Username already taken");
-//                return false;
-//            }
-//            else if (state.equals("1602")) {
-//                System.out.println("Email already taken");
-//                return false;
-//            }
-//            System.out.println("Something else went wrong idk");
             return false;
         }
 
@@ -125,7 +113,6 @@ public class LoginHelper {
 
             return List.of(username, totalScore);
         } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
             return null;
 
         }

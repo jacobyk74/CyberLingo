@@ -88,7 +88,6 @@ public class MainMenuController implements Initializable {
         this.email = email;
 //        usernameLabel.setText("Hello, "+ email + "!");
 
-        // TODO change points label to match points from database
         List<String> temp = LoginHelper.getSpecificScore(email);
         this.username = temp.get(0);
         this.userScore = temp.get(1);

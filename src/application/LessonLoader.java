@@ -1,11 +1,10 @@
 package application;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.io.*;
+import java.net.URL;
+import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 public class LessonLoader {
 
@@ -18,20 +17,19 @@ public class LessonLoader {
         for (File file : lessonFiles) {
             if (file.isDirectory()) break;
 
-            try (Scanner scanner = new Scanner(file)) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 List<Lecture> lectures = new ArrayList<>();
                 List<Question> questions = new ArrayList<>();
-                String lessonTitle = scanner.nextLine();
+                String lessonTitle = reader.readLine();
 
-
-                while (scanner.hasNextLine()) {
-                    String line = scanner.nextLine();
-
+                String line = reader.readLine();
+                while (line != null) {
                     processLine(line, lectures, questions);
+                    line = reader.readLine();
                 }
                 lessons.add(new Lesson(questions, lectures, questions.size(), ++id, lessonTitle));
 
-            } catch (FileNotFoundException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 

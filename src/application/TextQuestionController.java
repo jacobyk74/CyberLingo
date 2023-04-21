@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -33,6 +35,8 @@ public class TextQuestionController implements Initializable {
     private Button submitButton;
     @FXML
     private VBox mainBox;
+    @FXML
+    private ImageView imageView;
 
     private Lesson lesson;
     private String username;
@@ -153,5 +157,11 @@ public class TextQuestionController implements Initializable {
         titleText.setText(lesson.getLessonTitle());
         TextQuestion question = (TextQuestion) lesson.getCurrQuestion();
         questionPromptText.setText(question.getPrompt());
+
+        try {
+            imageView.setImage(new Image(getClass().getResourceAsStream(question.getImageFilePath())));
+        } catch (Exception ignored) {
+
+        }
     }
 }

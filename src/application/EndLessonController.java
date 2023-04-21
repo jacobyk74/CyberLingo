@@ -37,7 +37,6 @@ public class EndLessonController implements Initializable {
         titleText.setText(lesson.getLessonTitle());
         scoreText.setText(score + "/" + possibleScore);
 
-        // TODO after normal loading, update score in database
         LoginHelper.updateScore(this.username, score * 10);
     }
 

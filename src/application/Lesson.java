@@ -48,12 +48,10 @@ public class Lesson {
     }
 
     public int getCurrQuestionIndex() {
-        //TODO
         return this.currQuestionIndex;
     }
 
     public int getId() {
-        // TODO
         return this.id;
     }
 
@@ -62,7 +60,6 @@ public class Lesson {
     }
 
     public boolean nextQuestion() {
-        //TODO
         if (questions.size() == currQuestionIndex + 1) {
             return false;
         }
@@ -71,8 +68,6 @@ public class Lesson {
     }
 
     public boolean nextLecture() {
-        // TODO
-        // need to figure out later how to know when to show the next lecture
         if (lectures.size() == currLectureIndex + 1) {
             return false;
         }
@@ -81,7 +76,6 @@ public class Lesson {
     }
 
     public void incrementScore() {
-        //TODO
         this.currScore++;
     }
 

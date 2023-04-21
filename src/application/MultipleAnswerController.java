@@ -13,6 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -40,6 +42,8 @@ public class MultipleAnswerController implements Initializable {
     private Button submitButton;
     @FXML
     private VBox mainBox;
+    @FXML
+    private ImageView imageView;
 
     private String username;
     private Lesson lesson;
@@ -193,6 +197,12 @@ public class MultipleAnswerController implements Initializable {
             answerBox3.setText(possibleAnswers.get(3));
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
+        }
+
+        try {
+            imageView.setImage(new Image(getClass().getResourceAsStream(question.getImageFilePath())));
+        } catch (Exception ignored) {
+
         }
 
     }

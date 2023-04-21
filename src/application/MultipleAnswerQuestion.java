@@ -9,7 +9,6 @@ public class MultipleAnswerQuestion extends Question {
     private List<String> possibleAnswers = new ArrayList<String>();
 
     public MultipleAnswerQuestion(String prompt, String imageFilePath, List<String> possibleAnswers, List<String> correctAnswers) {
-        //TODO
         this.setPrompt(prompt);
         this.setImageFilePath(imageFilePath);
         this.possibleAnswers = possibleAnswers;
@@ -18,7 +17,6 @@ public class MultipleAnswerQuestion extends Question {
 
     @Override
     public boolean checkIfCorrect(List<String> answers) {
-        //TODO
         if (answers.isEmpty() && !correctAnswers.isEmpty()) {
             return false;
         }
@@ -39,17 +37,14 @@ public class MultipleAnswerQuestion extends Question {
 
     @Override
     public List<String> getPossibleAnswers() {
-        //TODO
         return this.possibleAnswers;
     }
 
     public void setCorrectAnswers(List<String> correctAnswers) {
-        //TODO, may not be necessary
         this.correctAnswers = correctAnswers;
     }
 
     public List<String> getCorrectAnswers() {
-        //TODO
         return this.correctAnswers;
     }
 }

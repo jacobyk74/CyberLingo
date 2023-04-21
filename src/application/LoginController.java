@@ -42,7 +42,6 @@ public class LoginController {
         String givenEmail = emailField.getText();
 
         if (LoginHelper.login(givenEmail, passwordField.getText())) { // login successful, load main menu
-//            System.out.println("True")
             FXMLLoader loader = new FXMLLoader(getClass().getResource("main-menu.fxml"));
             Parent root = loader.load();
 
@@ -56,7 +55,6 @@ public class LoginController {
             stage.show();
         }
         else { // login unsuccessful, show alert window
-//            System.out.println("False");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Login Failed");
             alert.setHeaderText(null);

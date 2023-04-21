@@ -28,7 +28,6 @@ public class LectureController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // TODO
     }
 
     public void loadLectureInfo(Lesson currentLesson, String username) {
@@ -39,8 +38,13 @@ public class LectureController implements Initializable {
         Lecture lecture = currentLesson.getCurrLecture();
         lectureTitleText.setText(lecture.getTopic());
         lectureText.setText(lecture.getLectureText());
-//        lectureImage.setImage(new Image(lecture.getImageFilePath()));
-//        currentLesson.nextLecture();
+
+        try {
+            lectureImage.setImage(new Image(getClass().getResourceAsStream(lecture.getImageFilePath())));
+        } catch (Exception ignored) {
+            System.out.println("file path is: " + lecture.getImageFilePath());
+            ignored.printStackTrace();
+        }
     }
 
     public void back(ActionEvent event) {

@@ -12,17 +12,14 @@ public abstract class Question {
     public abstract List<String> getPossibleAnswers(); // will need to check for empty list when calling this method
 
     public void setPrompt(String prompt) {
-        //TODO
         this.prompt = prompt;
     }
 
     public boolean getIsCorrect() {
-        //TODO
         return this.isCorrect;
     }
 
     public String getPrompt() {
-        //TODO
         return this.prompt;
     }
 
